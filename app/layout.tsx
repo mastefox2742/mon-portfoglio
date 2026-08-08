@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "DEV.MICHE — Développeur Créatif",
   description:
-    "Portfolio de développeur full-stack créatif basé à Brazzaville, Congo.",
+    "Portfolio de développeur full-stack créatif basé à Pise, en Italie.",
   metadataBase: new URL("https://dev-miche-portfolio.foxdev51.chatgpt.site"),
   openGraph: {
     title: "Votre vision. Mon code.",
