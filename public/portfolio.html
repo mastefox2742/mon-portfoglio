@@ -417,6 +417,15 @@
   .about-body { color:var(--muted); line-height:1.8; font-size:.92rem; max-width:580px; }
   .project-image { height:190px; width:100%; object-fit:cover; display:block; background:#08080c; }
   .project-image.contain { object-fit:contain; padding:1.4rem; }
+  .code-rain{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;font-family:'Space Mono',monospace;color:rgba(167,139,250,.11);font-size:clamp(.62rem,1vw,.78rem);line-height:2.1}
+  .code-rain span{position:absolute;white-space:pre;animation:codeFloat 12s ease-in-out infinite}
+  .code-rain span:nth-child(1){left:3%;top:18%}.code-rain span:nth-child(2){right:2%;top:26%;animation-delay:-3s}.code-rain span:nth-child(3){left:7%;bottom:12%;animation-delay:-6s}.code-rain span:nth-child(4){right:5%;bottom:15%;animation-delay:-9s}
+  @keyframes codeFloat{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(-22px);opacity:1}}
+  .project-story{color:var(--muted);font-size:.8rem;line-height:1.72}.project-story strong{color:var(--violet-light)}
+  .career-meta{color:var(--muted);font-size:.74rem;font-family:'Space Mono',monospace;margin-top:.25rem}
+  .experience-code{background:#0a0a0e;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.25)}
+  .code-window-bar{height:44px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px;padding:0 16px}.code-window-bar span{width:9px;height:9px;border-radius:50%;background:#ec4899}.code-window-bar span:nth-child(2){background:#f59e0b}.code-window-bar span:nth-child(3){background:#4ade80}.code-window-bar small{margin-left:auto;color:var(--muted);font-family:'Space Mono',monospace}
+  .experience-code pre{padding:2rem;overflow:auto;color:#cbd5e1;font-family:'Space Mono',monospace;font-size:.78rem;line-height:2}.code-purple{color:#a78bfa}.code-pink{color:#f472b6}.code-green{color:#4ade80}
   @media(max-width:768px){.personal-hero{padding-top:6.5rem}.personal-title{font-size:clamp(3rem,16vw,5.5rem)}.profile-grid{grid-template-columns:1fr;max-width:520px}.portrait-card{min-height:360px}.about-card{padding:1rem 0 0}}
 </style>
 </head>
@@ -474,6 +483,12 @@
 <!-- ══════════ HERO ══════════ -->
 <section id="hero" class="personal-hero flex flex-col justify-center items-center relative px-6 overflow-hidden">
   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.045) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;"></div>
+  <div class="code-rain" aria-hidden="true">
+    <span>const vision = await imagine();<br>const produit = build(vision);</span>
+    <span>projects.map(project =&gt; ship(project));<br>if (idea) code();</span>
+    <span>fetch('/api/ambition')<br>&nbsp;&nbsp;.then(response =&gt; response.json());</span>
+    <span>function createFuture() {<br>&nbsp;&nbsp;return design + code + impact;<br>}</span>
+  </div>
   <div class="flex items-center gap-2 mb-8 relative z-10" data-aos="fade-down"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span></span><span style="font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.16em;color:var(--muted);">DISPONIBLE POUR MISSION</span></div>
   <div class="personal-title font-extrabold uppercase text-center relative z-10" data-aos="fade-up"><div>VOTRE <span class="gradient-sub">VISION.</span></div><div>MON <span class="gradient-sub">CODE.</span></div></div>
   <div class="profile-grid relative z-10">
@@ -502,224 +517,61 @@
 
 <!-- ══════════ EXPERTISE ══════════ -->
 <section id="expertise" class="max-w-6xl mx-auto px-6 py-24">
-  <div class="mb-14" data-aos="fade-up">
-    <p class="section-label mb-4">expertise</p>
-    <h2 class="text-4xl font-extrabold leading-tight">Ce que je <span class="gradient-sub">maîtrise</span></h2>
+  <div class="mb-14" data-aos="fade-up"><p class="section-label mb-4">expertise</p><h2 class="text-4xl font-extrabold leading-tight">Compétences acquises <span class="gradient-sub">sur le terrain</span></h2><p class="mt-4 max-w-2xl" style="color:var(--muted);line-height:1.8;">Une stack construite depuis 2023 en développant des produits éducatifs, fintech, mobiles et des plateformes de gestion complètes.</p></div>
+  <div class="grid md:grid-cols-2 gap-5">
+    <article class="expertise-card" data-aos="fade-up"><div class="bg-code"><div>&lt;Next.js /&gt;</div><div>React 19</div><div>TypeScript</div></div><h3 class="text-xl font-bold mb-3">Frontend & Expérience</h3><p class="text-sm mb-4" style="color:var(--muted);line-height:1.7;">Interfaces web responsives, composants réutilisables, visualisation de données et design systems cohérents.</p><div><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Recharts</span><span class="tag">Figma</span></div></article>
+    <article class="expertise-card" data-aos="fade-up" data-aos-delay="60"><div class="bg-code"><div>api.get()</div><div>queue.add()</div><div>z.object()</div></div><h3 class="text-xl font-bold mb-3">Backend, API & Cloud</h3><p class="text-sm mb-4" style="color:var(--muted);line-height:1.7;">APIs typées, validation, files de tâches, cache, observabilité et déploiements de services fiables.</p><div><span class="tag">Node.js</span><span class="tag">Hono</span><span class="tag">Zod</span><span class="tag">Redis</span><span class="tag">BullMQ</span><span class="tag">Sentry</span></div></article>
+    <article class="expertise-card" data-aos="fade-up"><div class="bg-code"><div>SELECT *</div><div>RLS policy</div><div>pgvector</div></div><h3 class="text-xl font-bold mb-3">Données, Auth & Paiement</h3><p class="text-sm mb-4" style="color:var(--muted);line-height:1.7;">Modélisation PostgreSQL, sécurité par rôles, authentification, stockage et intégration de paiements internationaux et Mobile Money.</p><div><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">RLS</span><span class="tag">Stripe</span><span class="tag">CinetPay</span><span class="tag">JWT</span></div></article>
+    <article class="expertise-card" data-aos="fade-up" data-aos-delay="60"><div class="bg-code"><div>expo start</div><div>offline-first</div><div>sync()</div></div><h3 class="text-xl font-bold mb-3">Mobile, IA & Ingénierie</h3><p class="text-sm mb-4" style="color:var(--muted);line-height:1.7;">Applications mobiles offline-first, assistants IA, monorepos et pratiques de développement apprises en projets et à la Piscine 42.</p><div><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">WatermelonDB</span><span class="tag">Gemini AI</span><span class="tag">Git</span><span class="tag">C / Unix</span></div></article>
   </div>
-
-  <div class="grid md:grid-cols-3 gap-5">
-
-    <!-- Card 1: Frontend -->
-    <div class="expertise-card" data-aos="fade-up" data-aos-delay="0">
-      <div class="bg-code">
-        <div>&lt;h3&gt;</div>
-        <div>&lt;section&gt;</div>
-        <div>&lt;html&gt;</div>
-        <div>&lt;/div&gt;</div>
-        <div>&lt;style&gt;</div>
-      </div>
-      <div class="icon-wrap">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.8"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-      </div>
-      <h3 class="text-lg font-bold mb-2">Frontend & UI</h3>
-      <p class="text-sm mb-4" style="color:var(--muted);line-height:1.7;">Interfaces pixel-perfect, animations fluides, expériences utilisateur mémorables sur tous les écrans.</p>
-      <div>
-        <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Tailwind</span>
-        <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">GSAP</span>
-      </div>
-    </div>
-
-    <!-- Card 2: Backend -->
-    <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
-      <div class="bg-code">
-        <div>const app =</div>
-        <div>express()</div>
-        <div>.listen()</div>
-        <div>router.get</div>
-        <div>MongoDB</div>
-      </div>
-      <div class="icon-wrap">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      </div>
-      <h3 class="text-lg font-bold mb-2">Backend & API</h3>
-      <p class="text-sm mb-4" style="color:var(--muted);line-height:1.7;">APIs RESTful robustes, gestion de bases de données, authentification sécurisée et déploiement cloud.</p>
-      <div>
-        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span>
-        <span class="tag">Railway</span><span class="tag">JWT</span><span class="tag">REST</span>
-      </div>
-    </div>
-
-    <!-- Card 3: Mobile / Design -->
-    <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
-      <div class="bg-code">
-        <div>@media</div>
-        <div>screen and</div>
-        <div>(mobile)</div>
-        <div>flex-col</div>
-        <div>responsive</div>
-      </div>
-      <div class="icon-wrap">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-      </div>
-      <h3 class="text-lg font-bold mb-2">Design Responsive</h3>
-      <p class="text-sm mb-4" style="color:var(--muted);line-height:1.7;">Conceptions adaptées à tous les supports : mobile, tablette, desktop. Fidèle aux maquettes Figma.</p>
-      <div>
-        <span class="tag">Figma</span><span class="tag">Mobile-first</span><span class="tag">GitHub Pages</span>
-        <span class="tag">PWA</span><span class="tag">SEO</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Stats row -->
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10" data-aos="fade-up" data-aos-delay="100">
-    <div class="text-center p-5 rounded-xl" style="background:var(--surface);border:1px solid var(--border);">
-      <div class="text-3xl font-extrabold" style="color:var(--violet);">12+</div>
-      <div class="text-xs mt-1" style="color:var(--muted);font-family:'Space Mono',monospace;">Projets livrés</div>
-    </div>
-    <div class="text-center p-5 rounded-xl" style="background:var(--surface);border:1px solid var(--border);">
-      <div class="text-3xl font-extrabold" style="color:var(--pink);">3+</div>
-      <div class="text-xs mt-1" style="color:var(--muted);font-family:'Space Mono',monospace;">Années d'XP</div>
-    </div>
-    <div class="text-center p-5 rounded-xl" style="background:var(--surface);border:1px solid var(--border);">
-      <div class="text-3xl font-extrabold" style="color:var(--violet);">100%</div>
-      <div class="text-xs mt-1" style="color:var(--muted);font-family:'Space Mono',monospace;">Satisfaction</div>
-    </div>
-    <div class="text-center p-5 rounded-xl" style="background:var(--surface);border:1px solid var(--border);">
-      <div class="text-3xl font-extrabold" style="color:var(--pink);">∞</div>
-      <div class="text-xs mt-1" style="color:var(--muted);font-family:'Space Mono',monospace;">Passion</div>
-    </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 text-center">
+    <div class="expertise-card"><div class="text-3xl font-extrabold gradient-sub">2023</div><div class="text-xs mt-2" style="color:var(--muted);">Début en programmation</div></div>
+    <div class="expertise-card"><div class="text-3xl font-extrabold gradient-sub">42</div><div class="text-xs mt-2" style="color:var(--muted);">Piscine Florence</div></div>
+    <div class="expertise-card"><div class="text-3xl font-extrabold gradient-sub">Pise</div><div class="text-xs mt-2" style="color:var(--muted);">Étudiant universitaire</div></div>
+    <div class="expertise-card"><div class="text-3xl font-extrabold gradient-sub">6+</div><div class="text-xs mt-2" style="color:var(--muted);">Produits réalisés</div></div>
   </div>
 </section>
 
 <!-- ══════════ WORK ══════════ -->
 <section id="work" class="max-w-6xl mx-auto px-6 py-24">
-  <div class="flex justify-between items-end mb-12 flex-wrap gap-4" data-aos="fade-up"><div><p class="section-label mb-4">travaux</p><h2 class="text-4xl font-extrabold">Projets <span class="gradient-sub">Sélectionnés</span></h2></div><p style="color:var(--muted);max-width:440px;font-size:.88rem;line-height:1.7;">Produits éducatifs, fintech, plateformes de gestion et expériences numériques développés au Congo.</p></div>
+  <div class="flex justify-between items-end mb-12 flex-wrap gap-4" data-aos="fade-up"><div><p class="section-label mb-4">travaux</p><h2 class="text-4xl font-extrabold">Projets <span class="gradient-sub">Sélectionnés</span></h2></div><p style="color:var(--muted);max-width:480px;font-size:.88rem;line-height:1.7;">Chaque projet m’a appris à transformer une difficulté technique ou métier en une solution plus simple et plus robuste.</p></div>
   <div class="flex gap-2 flex-wrap mb-8"><button class="filter-btn active" data-filter="all">Tous</button><button class="filter-btn" data-filter="education">Éducation</button><button class="filter-btn" data-filter="fintech">Fintech</button><button class="filter-btn" data-filter="web">Web</button><button class="filter-btn" data-filter="spirituel">Spirituel</button></div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-    <article class="project-card" data-category="education mobile web" data-aos="fade-up"><img class="project-image contain" src="/projects/cognix.jpg" alt="Logo Cognix"><div class="p-5"><span class="tag">Éducation + IA</span><h3 class="font-bold text-xl mt-3 mb-2">Cognix</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Application mobile et web de préparation au CEPE, BEPC et BAC au Congo, avec cours, examens et accompagnement intelligent.</p></div></article>
-    <article class="project-card" data-category="fintech web" data-aos="fade-up"><img class="project-image" src="/projects/alphapay.png" alt="Aperçu AlphaPay"><div class="p-5"><span class="tag">Fintech</span><h3 class="font-bold text-xl mt-3 mb-2">AlphaPay / PayBrain</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Infrastructure de paiement sécurisée, routage intelligent et tableau de bord financier.</p></div></article>
-    <article class="project-card" data-category="education web" data-aos="fade-up"><img class="project-image" src="/projects/unigest.png" alt="Aperçu UniGest"><div class="p-5"><span class="tag">Gestion scolaire</span><h3 class="font-bold text-xl mt-3 mb-2">UniGest</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Gestion académique connectée pour administrateurs, enseignants, étudiants et familles.</p></div></article>
-    <article class="project-card" data-category="education web" data-aos="fade-up"><img class="project-image" src="/projects/alpha-school.png" alt="Aperçu Alpha School"><div class="p-5"><span class="tag">Education SaaS</span><h3 class="font-bold text-xl mt-3 mb-2">Alpha School</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Plateforme scolaire assistée par IA pour directions, enseignants, parents et apprenants.</p></div></article>
-    <article class="project-card" data-category="spirituel web" data-aos="fade-up"><div class="project-thumb" style="height:190px;background:linear-gradient(145deg,#180b25,#39134e);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;"><span style="font-size:3rem;color:#f4d06f;">✦</span><span style="font-family:'Space Mono',monospace;letter-spacing:.18em;color:#f4d06f;">CATHÉDRALE</span></div><div class="p-5"><span class="tag">Site spirituel</span><h3 class="font-bold text-xl mt-3 mb-2">Cathédrale</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Une présence numérique solennelle dédiée aux célébrations et à la communauté d'une cathédrale.</p></div></article>
-    <article class="project-card" data-category="spirituel mobile web" data-aos="fade-up"><img class="project-image" src="/projects/alpha-omega.jpg" alt="Aperçu Alpha Omega"><div class="p-5"><span class="tag">Méditation</span><h3 class="font-bold text-xl mt-3 mb-2">Alpha Omega</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Expérience numérique de méditation et de contenu spirituel pour la réflexion quotidienne.</p></div></article>
+    <article class="project-card" data-category="education mobile web" data-aos="fade-up"><img class="project-image contain" src="/projects/cognix.jpg" alt="Logo Cognix"><div class="p-5"><span class="tag">Next.js</span><span class="tag">Expo</span><span class="tag">Supabase</span><h3 class="font-bold text-xl mt-3 mb-2">Cognix</h3><p class="project-story"><strong>Défi :</strong> synchroniser cours, examens et progression entre web et mobile, même avec une connexion instable.<br><strong>Notion retenue :</strong> architecture offline-first, types partagés et sécurité RLS.</p></div></article>
+    <article class="project-card" data-category="fintech web" data-aos="fade-up"><img class="project-image" src="/projects/alphapay.png" alt="Aperçu AlphaPay"><div class="p-5"><span class="tag">TypeScript</span><span class="tag">Paiement</span><span class="tag">Monorepo</span><h3 class="font-bold text-xl mt-3 mb-2">AlphaPay / PayBrain</h3><p class="project-story"><strong>Défi :</strong> fiabiliser plusieurs parcours de paiement et garder une logique financière cohérente.<br><strong>Notion retenue :</strong> idempotence, traçabilité des transactions et séparation des domaines.</p></div></article>
+    <article class="project-card" data-category="education web" data-aos="fade-up"><img class="project-image" src="/projects/unigest.png" alt="Aperçu UniGest"><div class="p-5"><span class="tag">React</span><span class="tag">Supabase</span><span class="tag">RBAC</span><h3 class="font-bold text-xl mt-3 mb-2">UniGest</h3><p class="project-story"><strong>Défi :</strong> gérer des rôles très différents sans complexifier l’expérience utilisateur.<br><strong>Notion retenue :</strong> permissions par rôle, modèles de données partagés et validation automatisée.</p></div></article>
+    <article class="project-card" data-category="education web" data-aos="fade-up"><img class="project-image" src="/projects/alpha-school.png" alt="Aperçu Alpha School"><div class="p-5"><span class="tag">Next.js</span><span class="tag">IA</span><span class="tag">UX</span><h3 class="font-bold text-xl mt-3 mb-2">Alpha School</h3><p class="project-story"><strong>Défi :</strong> rendre l’assistance IA réellement utile aux enseignants et aux familles.<br><strong>Notion retenue :</strong> concevoir des workflows guidés, contextualiser l’IA et mesurer la valeur métier.</p></div></article>
+    <article class="project-card" data-category="spirituel web" data-aos="fade-up"><div class="project-thumb" style="height:190px;background:linear-gradient(145deg,#180b25,#39134e);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;"><span style="font-size:3rem;color:#f4d06f;">✦</span><span style="font-family:'Space Mono',monospace;letter-spacing:.18em;color:#f4d06f;">CATHÉDRALE</span></div><div class="p-5"><span class="tag">HTML</span><span class="tag">Responsive</span><span class="tag">Accessibilité</span><h3 class="font-bold text-xl mt-3 mb-2">Cathédrale</h3><p class="project-story"><strong>Défi :</strong> concilier une identité visuelle solennelle avec une navigation claire sur mobile.<br><strong>Notion retenue :</strong> hiérarchie typographique, sobriété visuelle et accessibilité du contenu.</p></div></article>
+    <article class="project-card" data-category="spirituel mobile web" data-aos="fade-up"><img class="project-image" src="/projects/alpha-omega.jpg" alt="Aperçu Alpha Omega"><div class="p-5"><span class="tag">Contenu</span><span class="tag">Mobile-first</span><span class="tag">Design</span><h3 class="font-bold text-xl mt-3 mb-2">Alpha Omega</h3><p class="project-story"><strong>Défi :</strong> présenter des méditations longues sans fatiguer la lecture quotidienne.<br><strong>Notion retenue :</strong> rythme éditorial, lisibilité, navigation mobile-first et cohérence émotionnelle.</p></div></article>
   </div>
 </section>
 
 <!-- ══════════ EXPERIENCE ══════════ -->
 <section id="experience" class="max-w-6xl mx-auto px-6 py-24">
-  <div class="mb-14" data-aos="fade-up">
-    <p class="section-label mb-4">parcours</p>
-    <h2 class="text-4xl font-extrabold">Mon <span class="gradient-sub">Expérience</span></h2>
-  </div>
-
-  <div class="grid md:grid-cols-2 gap-5">
-
-    <!-- Timeline left -->
+  <div class="mb-14" data-aos="fade-up"><p class="section-label mb-4">parcours</p><h2 class="text-4xl font-extrabold">Mon <span class="gradient-sub">Parcours</span></h2></div>
+  <div class="grid lg:grid-cols-2 gap-5">
     <div class="flex flex-col gap-4">
-
-      <div class="exp-block" data-aos="fade-right" data-aos-delay="0">
-        <div class="exp-header" onclick="toggleExp(this)">
-          <div class="flex items-center gap-4">
-            <div style="width:40px;height:40px;border-radius:8px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.8"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-            </div>
-            <div>
-              <div class="font-bold text-sm">Développeur Fullstack</div>
-              <div style="color:var(--muted);font-size:0.75rem;font-family:'Space Mono',monospace;">Projets Personnels · 2022 – présent</div>
-            </div>
-          </div>
-          <div class="plus-btn">+</div>
-        </div>
-        <div class="exp-body">
-          Conception et développement de multiples projets web fullstack autonomes : e-commerce, plateformes spirituelles, académies de formation. Stack principal : HTML/CSS/JS vanilla, Node.js, MongoDB, Railway.
-        </div>
-      </div>
-
-      <div class="exp-block" data-aos="fade-right" data-aos-delay="80">
-        <div class="exp-header" onclick="toggleExp(this)">
-          <div class="flex items-center gap-4">
-            <div style="width:40px;height:40px;border-radius:8px;background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            </div>
-            <div>
-              <div class="font-bold text-sm">Designer UI/UX</div>
-              <div style="color:var(--muted);font-size:0.75rem;font-family:'Space Mono',monospace;">Freelance · 2021 – présent</div>
-            </div>
-          </div>
-          <div class="plus-btn">+</div>
-        </div>
-        <div class="exp-body">
-          Création de maquettes Figma, design systems, prototypes interactifs. Spécialiste des interfaces dark mode avec des typographies distinctives et des animations CSS soignées.
-        </div>
-      </div>
-
-      <div class="exp-block" data-aos="fade-right" data-aos-delay="160">
-        <div class="exp-header" onclick="toggleExp(this)">
-          <div class="flex items-center gap-4">
-            <div style="width:40px;height:40px;border-radius:8px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <div>
-              <div class="font-bold text-sm">Contenu & Rédaction Spirituelle</div>
-              <div style="color:var(--muted);font-size:0.75rem;font-family:'Space Mono',monospace;">Brazzaville · 2020 – présent</div>
-            </div>
-          </div>
-          <div class="plus-btn">+</div>
-        </div>
-        <div class="exp-body">
-          Rédaction d'homélies catholiques, méditations bibliques, et réflexions spirituelles en français. Publication en ligne via GitHub Pages avec traduction multilingue.
-        </div>
-      </div>
+      <article class="exp-block open" data-aos="fade-right"><div class="exp-header" onclick="toggleExp(this)"><div><div class="font-bold">Développeur Full-Stack & Créateur de produits</div><div class="career-meta">2023 — aujourd’hui</div></div><div class="plus-btn">×</div></div><div class="exp-body open">Début de mon parcours en programmation en 2023. Depuis, je construis des applications web et mobiles complètes : interfaces, API, données, authentification, paiement, IA et déploiement.</div></article>
+      <article class="exp-block" data-aos="fade-right" data-aos-delay="60"><div class="exp-header" onclick="toggleExp(this)"><div><div class="font-bold">Piscine 42 Florence</div><div class="career-meta">Formation intensive</div></div><div class="plus-btn">+</div></div><div class="exp-body">Immersion dans le langage C, Unix, Git, algorithmique, gestion de mémoire et résolution de problèmes sous contrainte. Une expérience qui a renforcé mon autonomie, ma rigueur et le travail entre pairs.</div></article>
+      <article class="exp-block" data-aos="fade-right" data-aos-delay="120"><div class="exp-header" onclick="toggleExp(this)"><div><div class="font-bold">Étudiant — Université de Pise</div><div class="career-meta">Pise, Italie · en cours</div></div><div class="plus-btn">+</div></div><div class="exp-body">Mon parcours universitaire complète ma pratique par une méthode d’apprentissage structurée, une ouverture internationale et une capacité à relier théorie, recherche et réalisation concrète.</div></article>
     </div>
+    <div class="experience-code" data-aos="fade-left">
+      <div class="code-window-bar"><span></span><span></span><span></span><small>parcours.js</small></div>
+      <pre><code><span class="code-purple">const</span> miche = {
+  startedCoding: <span class="code-pink">2023</span>,
+  education: [
+    <span class="code-green">"42 Florence — Piscine"</span>,
+    <span class="code-green">"Université de Pise"</span>
+  ],
+  mindset: <span class="code-green">"learn, build, iterate"</span>,
+  location: <span class="code-green">"Pise ↔ Brazzaville"</span>
+};
 
-    <!-- Right: skills bars -->
-    <div data-aos="fade-left" data-aos-delay="100">
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.75rem;">
-        <h3 class="font-bold mb-6 text-sm" style="font-family:'Space Mono',monospace;letter-spacing:0.1em;color:var(--muted);">COMPÉTENCES TECHNIQUES</h3>
-        <div class="flex flex-col gap-5">
-          <div>
-            <div class="flex justify-between mb-2 text-sm"><span>HTML / CSS</span><span style="color:var(--violet);">96%</span></div>
-            <div style="height:4px;background:var(--border);border-radius:2px;"><div style="height:100%;width:96%;background:linear-gradient(90deg,var(--violet),var(--pink));border-radius:2px;transition:width 1.5s ease;"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between mb-2 text-sm"><span>JavaScript</span><span style="color:var(--violet);">88%</span></div>
-            <div style="height:4px;background:var(--border);border-radius:2px;"><div style="height:100%;width:88%;background:linear-gradient(90deg,var(--violet),var(--pink));border-radius:2px;"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between mb-2 text-sm"><span>Node.js / Express</span><span style="color:var(--violet);">80%</span></div>
-            <div style="height:4px;background:var(--border);border-radius:2px;"><div style="height:100%;width:80%;background:linear-gradient(90deg,var(--violet),var(--pink));border-radius:2px;"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between mb-2 text-sm"><span>MongoDB</span><span style="color:var(--violet);">75%</span></div>
-            <div style="height:4px;background:var(--border);border-radius:2px;"><div style="height:100%;width:75%;background:linear-gradient(90deg,var(--violet),var(--pink));border-radius:2px;"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between mb-2 text-sm"><span>React</span><span style="color:var(--violet);">68%</span></div>
-            <div style="height:4px;background:var(--border);border-radius:2px;"><div style="height:100%;width:68%;background:linear-gradient(90deg,var(--violet),var(--pink));border-radius:2px;"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between mb-2 text-sm"><span>Figma / Design</span><span style="color:var(--violet);">82%</span></div>
-            <div style="height:4px;background:var(--border);border-radius:2px;"><div style="height:100%;width:82%;background:linear-gradient(90deg,var(--violet),var(--pink));border-radius:2px;"></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Testimonial -->
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.75rem;margin-top:1.25rem;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:-20px;left:-10px;font-size:8rem;color:rgba(139,92,246,0.06);font-family:Georgia,serif;line-height:1;">"</div>
-        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;font-style:italic;position:relative;">
-          "Une rigueur technique remarquable, un sens esthétique raffiné et une capacité à livrer des projets complets de A à Z. Toujours au rendez-vous."
-        </p>
-        <div class="flex items-center gap-3 mt-4">
-          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--pink));display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;">C</div>
-          <div>
-            <div class="text-sm font-bold">Client Anonyme</div>
-            <div style="color:var(--muted);font-size:0.7rem;font-family:'Space Mono',monospace;">Brazzaville, Congo</div>
-          </div>
-        </div>
-      </div>
+<span class="code-purple">async function</span> buildIdea(vision) {
+  <span class="code-purple">const</span> product = <span class="code-purple">await</span> design(vision);
+  <span class="code-purple">return</span> code(product);
+}</code></pre>
     </div>
-
   </div>
 </section>
 
