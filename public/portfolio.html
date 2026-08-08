@@ -405,6 +405,19 @@
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
   }
+  .personal-hero { min-height:100vh; padding-top:7.5rem; padding-bottom:5rem; }
+  .personal-title { font-size:clamp(3.5rem,9vw,8.5rem); line-height:.82; letter-spacing:-.055em; }
+  .profile-grid { display:grid; grid-template-columns:minmax(260px,.82fr) minmax(320px,1.18fr); gap:2rem; align-items:center; width:100%; max-width:900px; margin:2.2rem auto 0; }
+  .portrait-card { position:relative; min-height:420px; border-radius:18px; padding:9px; background:linear-gradient(135deg,var(--violet-light),var(--pink)); box-shadow:0 0 50px rgba(139,92,246,.22); }
+  .portrait-card::before { content:''; position:absolute; inset:-12px; border:1px solid rgba(167,139,250,.32); border-radius:24px; z-index:-1; }
+  .portrait-card img { width:100%; height:100%; min-height:402px; max-height:520px; object-fit:cover; object-position:center 24%; border-radius:12px; display:block; }
+  .about-card { padding:1rem 0 1rem 1rem; }
+  .about-kicker { font-family:'Space Mono',monospace; font-size:.72rem; letter-spacing:.18em; color:var(--text); margin-bottom:.85rem; }
+  .about-lead { font-size:clamp(1.4rem,2.8vw,2.25rem); line-height:1.15; font-weight:600; margin-bottom:1rem; }
+  .about-body { color:var(--muted); line-height:1.8; font-size:.92rem; max-width:580px; }
+  .project-image { height:190px; width:100%; object-fit:cover; display:block; background:#08080c; }
+  .project-image.contain { object-fit:contain; padding:1.4rem; }
+  @media(max-width:768px){.personal-hero{padding-top:6.5rem}.personal-title{font-size:clamp(3rem,16vw,5.5rem)}.profile-grid{grid-template-columns:1fr;max-width:520px}.portrait-card{min-height:360px}.about-card{padding:1rem 0 0}}
 </style>
 </head>
 <body>
@@ -459,63 +472,14 @@
 </nav>
 
 <!-- ══════════ HERO ══════════ -->
-<section id="hero" class="min-h-screen flex flex-col justify-center items-center relative px-6 pt-24 pb-16">
-
-  <!-- Grid background lines -->
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;"></div>
-
-  <!-- Availability badge -->
-  <div class="flex items-center gap-2 mb-8" data-aos="fade-down" data-aos-duration="600">
-    <span class="relative flex h-2 w-2">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
-    </span>
-    <span style="font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;color:var(--muted);">DISPONIBLE POUR MISSION</span>
+<section id="hero" class="personal-hero flex flex-col justify-center items-center relative px-6 overflow-hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.045) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;"></div>
+  <div class="flex items-center gap-2 mb-8 relative z-10" data-aos="fade-down"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span></span><span style="font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.16em;color:var(--muted);">DISPONIBLE POUR MISSION</span></div>
+  <div class="personal-title font-extrabold uppercase text-center relative z-10" data-aos="fade-up"><div>VOTRE <span class="gradient-sub">VISION.</span></div><div>MON <span class="gradient-sub">CODE.</span></div></div>
+  <div class="profile-grid relative z-10">
+    <div class="portrait-card" data-aos="fade-right"><img src="/miche-fresneil-portrait.png" alt="Portrait de Miche Fresneil"></div>
+    <div class="about-card" data-aos="fade-left"><p class="about-kicker">À PROPOS</p><h1 class="about-lead"><span class="gradient-sub">Miche Fresneil, Développeur Full-Stack Créatif basé à Brazzaville, Congo.</span></h1><p class="about-body">Miche Fresneil Zilat Mboni Obambi est un concepteur et développeur passionné par les expériences numériques utiles, élégantes et accessibles. Je transforme des idées ambitieuses en produits web et mobiles complets, de l'identité visuelle au déploiement.</p><div class="flex gap-4 flex-wrap mt-7"><a href="#work" class="btn-primary">Découvrir mes projets ↓</a><a href="#contact" class="btn-outline">Travaillons ensemble</a></div></div>
   </div>
-
-  <!-- Main title -->
-  <div class="text-center mb-6 relative z-10">
-    <div class="hero-title" data-aos="fade-up" data-aos-duration="700">
-      <div class="text-white">VOTRE</div>
-      <div><span>VISION.</span></div>
-      <div class="text-white">MON CODE.</div>
-    </div>
-  </div>
-
-  <!-- Sub -->
-  <p class="text-center text-lg max-w-xl leading-relaxed mb-10" data-aos="fade-up" data-aos-delay="100">
-    <span class="gradient-sub font-semibold">Développeur Full-Stack & Créatif</span>
-    <br/>
-    <span style="color:var(--muted);font-size:0.95rem;">Je transforme vos idées en expériences numériques mémorables.</span>
-  </p>
-
-  <!-- CTA buttons -->
-  <div class="flex gap-4 flex-wrap justify-center mb-20" data-aos="fade-up" data-aos-delay="180">
-    <a href="#work" class="btn-primary">Voir mes projets ↓</a>
-    <a href="#contact" class="btn-outline">Télécharger CV</a>
-  </div>
-
-  <!-- Partner logos strip -->
-  <div class="w-full max-w-3xl" data-aos="fade-up" data-aos-delay="260">
-    <p style="font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;color:rgba(148,163,184,0.4);text-align:center;margin-bottom:1rem;">TECHNOLOGIES & PARTENAIRES</p>
-    <div class="flex flex-wrap justify-center gap-3">
-      <span class="partner-logo">NODE.JS</span>
-      <span class="partner-logo">MONGODB</span>
-      <span class="partner-logo">REACT</span>
-      <span class="partner-logo">RAILWAY</span>
-      <span class="partner-logo">GITHUB</span>
-      <span class="partner-logo">TAILWIND</span>
-      <span class="partner-logo">EXPRESS</span>
-      <span class="partner-logo">FIGMA</span>
-    </div>
-  </div>
-
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="color:rgba(148,163,184,0.4);">
-    <span style="font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;">DÉFILER</span>
-    <div style="width:1px;height:40px;background:linear-gradient(to bottom,var(--violet),transparent);animation:scrollPulse 2s ease-in-out infinite;"></div>
-  </div>
-  <style>@keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.1)}}</style>
 </section>
 
 <!-- marquee -->
@@ -628,166 +592,16 @@
 </section>
 
 <!-- ══════════ WORK ══════════ -->
-<section id="work" class="px-6 py-24" style="background:rgba(22,22,28,0.5);">
-  <div class="max-w-6xl mx-auto">
-    <div class="flex items-end justify-between mb-14" data-aos="fade-up">
-      <div>
-        <p class="section-label mb-4">travaux</p>
-        <h2 class="text-4xl font-extrabold">Projets <span class="gradient-sub">Sélectionnés</span></h2>
-      </div>
-      <a href="#" class="btn-outline hidden md:inline-flex">Tout voir →</a>
-    </div>
-
-    <!-- Featured project -->
-    <div class="featured-card mb-10" data-aos="fade-up">
-      <div class="flex flex-col md:flex-row gap-0">
-        <!-- Left content -->
-        <div class="flex-1 p-8 md:p-12 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-3 mb-6">
-              <span class="tag">Projet Vedette</span>
-              <span class="tag" style="background:rgba(236,72,153,0.1);color:var(--pink-light);border-color:rgba(236,72,153,0.2);">E-Commerce</span>
-            </div>
-            <h3 class="text-3xl font-extrabold mb-4">MH Picture</h3>
-            <p style="color:var(--muted);line-height:1.8;font-size:0.95rem;" class="mb-6">
-              Boutique e-commerce fullstack dédiée aux affiches d'art biblique pour le marché francophone d'Afrique centrale. Backend Node.js/Express/MongoDB hébergé sur Railway avec intégration de paiement en FCFA.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-8">
-              <span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Express</span><span class="tag">Railway</span><span class="tag">FCFA</span>
-            </div>
-          </div>
-          <div class="flex gap-3 flex-wrap">
-            <a href="#" class="btn-primary">Voir le projet →</a>
-            <a href="#" class="btn-outline">GitHub ↗</a>
-          </div>
-        </div>
-        <!-- Right mockup -->
-        <div class="flex items-center justify-center p-8 md:p-12" style="background:linear-gradient(135deg,rgba(139,92,246,0.06),rgba(236,72,153,0.06));">
-          <div class="phone-mockup">
-            <div class="phone-screen">
-              <!-- Fake app UI -->
-              <div style="width:80%;background:rgba(255,255,255,0.05);border-radius:8px;padding:8px;border:1px solid rgba(255,255,255,0.08);">
-                <div style="height:6px;background:linear-gradient(90deg,var(--violet),var(--pink));border-radius:3px;margin-bottom:6px;"></div>
-                <div style="height:3px;background:rgba(255,255,255,0.1);border-radius:2px;margin-bottom:4px;width:70%;"></div>
-                <div style="height:3px;background:rgba(255,255,255,0.1);border-radius:2px;width:50%;"></div>
-              </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;width:80%;">
-                <div style="height:50px;background:rgba(139,92,246,0.2);border-radius:6px;border:1px solid rgba(139,92,246,0.3);"></div>
-                <div style="height:50px;background:rgba(236,72,153,0.2);border-radius:6px;border:1px solid rgba(236,72,153,0.3);"></div>
-              </div>
-              <div style="font-family:'Space Mono',monospace;font-size:0.5rem;color:var(--violet-light);letter-spacing:0.1em;">MH PICTURE</div>
-            </div>
-            <!-- notch -->
-            <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);width:40px;height:5px;background:#0a0a0e;border-radius:3px;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="glow-line"></div>
-    </div>
-
-    <!-- Filter -->
-    <div class="flex gap-2 mb-8 flex-wrap" data-aos="fade-up">
-      <button class="filter-btn active" data-filter="all">Tous</button>
-      <button class="filter-btn" data-filter="web">Web</button>
-      <button class="filter-btn" data-filter="mobile">Mobile</button>
-      <button class="filter-btn" data-filter="aviation">Aviation</button>
-      <button class="filter-btn" data-filter="spiritual">Spirituel</button>
-    </div>
-
-    <!-- Project grid -->
-    <div class="grid md:grid-cols-3 gap-5" id="projects-grid">
-
-      <div class="project-card" data-category="web aviation" data-aos="fade-up" data-aos-delay="0">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#0a1628,#0f2040);">
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-            <span style="font-family:'Space Mono',monospace;font-size:1.4rem;font-weight:700;color:#06b6d4;letter-spacing:0.2em;">AEROSIM</span>
-            <span style="font-size:0.6rem;color:rgba(6,182,212,0.6);font-family:'Space Mono',monospace;letter-spacing:0.3em;">242 ✦ BRAZZAVILLE</span>
-          </div>
-          <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#06b6d4,#0ea5e9);"></div>
-        </div>
-        <div class="p-5">
-          <h4 class="font-bold mb-1">AeroSim 242</h4>
-          <p style="color:var(--muted);font-size:0.8rem;line-height:1.6;" class="mb-3">Académie de vol virtuel de Brazzaville. Cockpit HUD, QCM, modules RTF interactifs.</p>
-          <div class="flex gap-1 flex-wrap"><span class="tag">HTML</span><span class="tag">JS</span><span class="tag">Aviation</span></div>
-        </div>
-      </div>
-
-      <div class="project-card" data-category="web spiritual" data-aos="fade-up" data-aos-delay="80">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#1a0a0a,#2d1b12);">
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-            <span style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:#C1A461;letter-spacing:0.15em;">ALPHA & OMÉGA</span>
-            <span style="font-size:0.6rem;color:rgba(193,164,97,0.6);font-family:'Space Mono',monospace;letter-spacing:0.2em;">MINISTÈRE CHRÉTIEN</span>
-          </div>
-          <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#C1A461,#d97706);"></div>
-        </div>
-        <div class="p-5">
-          <h4 class="font-bold mb-1">Alpha & Oméga</h4>
-          <p style="color:var(--muted);font-size:0.8rem;line-height:1.6;" class="mb-3">Plateforme de prédication et communauté chrétienne francophone. 6 pages, gold accents.</p>
-          <div class="flex gap-1 flex-wrap"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Spirituel</span></div>
-        </div>
-      </div>
-
-      <div class="project-card" data-category="web spiritual" data-aos="fade-up" data-aos-delay="160">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#0a0f1a,#111827);">
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-            <span style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:#a78bfa;letter-spacing:0.1em;">PAROLE VIVANTE</span>
-            <span style="font-size:0.6rem;color:rgba(167,139,250,0.5);font-family:'Space Mono',monospace;letter-spacing:0.2em;">MÉDITATIONS CARÊME</span>
-          </div>
-          <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--violet),var(--pink));"></div>
-        </div>
-        <div class="p-5">
-          <h4 class="font-bold mb-1">Parole Vivante</h4>
-          <p style="color:var(--muted);font-size:0.8rem;line-height:1.6;" class="mb-3">Site catholique de méditations de Carême. Homélies en français avec citations patristiques.</p>
-          <div class="flex gap-1 flex-wrap"><span class="tag">GitHub Pages</span><span class="tag">Français</span></div>
-        </div>
-      </div>
-
-      <div class="project-card" data-category="web spiritual" data-aos="fade-up" data-aos-delay="0">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#0f1a0f,#1a2d1a);">
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-            <span style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:#4ade80;letter-spacing:0.1em;">HOSARAH</span>
-            <span style="font-size:0.6rem;color:rgba(74,222,128,0.5);font-family:'Space Mono',monospace;letter-spacing:0.2em;">ART BIBLIQUE</span>
-          </div>
-          <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#4ade80,#22d3ee);"></div>
-        </div>
-        <div class="p-5">
-          <h4 class="font-bold mb-1">Hosarah</h4>
-          <p style="color:var(--muted);font-size:0.8rem;line-height:1.6;" class="mb-3">E-commerce d'art spirituel francophone. Single-file HTML avec images de produits réels.</p>
-          <div class="flex gap-1 flex-wrap"><span class="tag">HTML</span><span class="tag">E-commerce</span></div>
-        </div>
-      </div>
-
-      <div class="project-card" data-category="web aviation" data-aos="fade-up" data-aos-delay="80">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#080c14,#0d1829);">
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-            <span style="font-family:'Space Mono',monospace;font-size:1rem;font-weight:700;color:#f59e0b;letter-spacing:0.15em;">AÉROCLUB BZV</span>
-            <span style="font-size:0.6rem;color:rgba(245,158,11,0.5);font-family:'Space Mono',monospace;letter-spacing:0.2em;">PITCH INVESTISSEMENT</span>
-          </div>
-          <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#f59e0b,#ef4444);"></div>
-        </div>
-        <div class="p-5">
-          <h4 class="font-bold mb-1">Aéroclub Brazzaville</h4>
-          <p style="color:var(--muted);font-size:0.8rem;line-height:1.6;" class="mb-3">Page de pitch investissement pour une école de pilotage. Cessna 172, modèle financier.</p>
-          <div class="flex gap-1 flex-wrap"><span class="tag">Aviation</span><span class="tag">Congo</span></div>
-        </div>
-      </div>
-
-      <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="160">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#12000a,#200014);">
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-            <span style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:#f472b6;letter-spacing:0.1em;">HOMÉLIE.DEV</span>
-            <span style="font-size:0.6rem;color:rgba(244,114,182,0.5);font-family:'Space Mono',monospace;letter-spacing:0.2em;">FR / IT · APPS SCRIPT</span>
-          </div>
-          <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pink),var(--violet));"></div>
-        </div>
-        <div class="p-5">
-          <h4 class="font-bold mb-1">Site d'Homélie</h4>
-          <p style="color:var(--muted);font-size:0.8rem;line-height:1.6;" class="mb-3">GitHub Pages avec traduction FR/IT via proxy Google Apps Script. Esthétique solennelle dorée.</p>
-          <div class="flex gap-1 flex-wrap"><span class="tag">Apps Script</span><span class="tag">i18n</span></div>
-        </div>
-      </div>
-
-    </div>
+<section id="work" class="max-w-6xl mx-auto px-6 py-24">
+  <div class="flex justify-between items-end mb-12 flex-wrap gap-4" data-aos="fade-up"><div><p class="section-label mb-4">travaux</p><h2 class="text-4xl font-extrabold">Projets <span class="gradient-sub">Sélectionnés</span></h2></div><p style="color:var(--muted);max-width:440px;font-size:.88rem;line-height:1.7;">Produits éducatifs, fintech, plateformes de gestion et expériences numériques développés au Congo.</p></div>
+  <div class="flex gap-2 flex-wrap mb-8"><button class="filter-btn active" data-filter="all">Tous</button><button class="filter-btn" data-filter="education">Éducation</button><button class="filter-btn" data-filter="fintech">Fintech</button><button class="filter-btn" data-filter="web">Web</button><button class="filter-btn" data-filter="spirituel">Spirituel</button></div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <article class="project-card" data-category="education mobile web" data-aos="fade-up"><img class="project-image contain" src="/projects/cognix.jpg" alt="Logo Cognix"><div class="p-5"><span class="tag">Éducation + IA</span><h3 class="font-bold text-xl mt-3 mb-2">Cognix</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Application mobile et web de préparation au CEPE, BEPC et BAC au Congo, avec cours, examens et accompagnement intelligent.</p></div></article>
+    <article class="project-card" data-category="fintech web" data-aos="fade-up"><img class="project-image" src="/projects/alphapay.png" alt="Aperçu AlphaPay"><div class="p-5"><span class="tag">Fintech</span><h3 class="font-bold text-xl mt-3 mb-2">AlphaPay / PayBrain</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Infrastructure de paiement sécurisée, routage intelligent et tableau de bord financier.</p></div></article>
+    <article class="project-card" data-category="education web" data-aos="fade-up"><img class="project-image" src="/projects/unigest.png" alt="Aperçu UniGest"><div class="p-5"><span class="tag">Gestion scolaire</span><h3 class="font-bold text-xl mt-3 mb-2">UniGest</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Gestion académique connectée pour administrateurs, enseignants, étudiants et familles.</p></div></article>
+    <article class="project-card" data-category="education web" data-aos="fade-up"><img class="project-image" src="/projects/alpha-school.png" alt="Aperçu Alpha School"><div class="p-5"><span class="tag">Education SaaS</span><h3 class="font-bold text-xl mt-3 mb-2">Alpha School</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Plateforme scolaire assistée par IA pour directions, enseignants, parents et apprenants.</p></div></article>
+    <article class="project-card" data-category="spirituel web" data-aos="fade-up"><div class="project-thumb" style="height:190px;background:linear-gradient(145deg,#180b25,#39134e);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;"><span style="font-size:3rem;color:#f4d06f;">✦</span><span style="font-family:'Space Mono',monospace;letter-spacing:.18em;color:#f4d06f;">CATHÉDRALE</span></div><div class="p-5"><span class="tag">Site spirituel</span><h3 class="font-bold text-xl mt-3 mb-2">Cathédrale</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Une présence numérique solennelle dédiée aux célébrations et à la communauté d'une cathédrale.</p></div></article>
+    <article class="project-card" data-category="spirituel mobile web" data-aos="fade-up"><img class="project-image" src="/projects/alpha-omega.jpg" alt="Aperçu Alpha Omega"><div class="p-5"><span class="tag">Méditation</span><h3 class="font-bold text-xl mt-3 mb-2">Alpha Omega</h3><p style="color:var(--muted);font-size:.82rem;line-height:1.65;">Expérience numérique de méditation et de contenu spirituel pour la réflexion quotidienne.</p></div></article>
   </div>
 </section>
 
@@ -1078,4 +892,3 @@ function toggleMenu() {
 
 </body>
 </html>
-
