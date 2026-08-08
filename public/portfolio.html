@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Portfolio — Développeur Créatif</title>
+<script>document.documentElement.classList.add('js');</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -408,15 +409,26 @@
   .personal-hero { min-height:100vh; padding-top:6rem; padding-bottom:2rem; display:flex; align-items:center; }
   .hero-stage { width:100%; max-width:1180px; margin:0 auto; display:grid; grid-template-columns:minmax(300px,.82fr) minmax(420px,1.18fr); gap:clamp(2rem,5vw,5rem); align-items:center; }
   .hero-photo-panel { height:min(70vh,680px); min-height:500px; overflow:hidden; border-radius:22px; border:1px solid rgba(167,139,250,.38); box-shadow:0 0 70px rgba(139,92,246,.18); position:relative; }
+  .hero-photo-enter { opacity:0; transform:translateY(28px) scale(.965); animation:heroPhotoReveal .9s cubic-bezier(.2,.8,.2,1) .12s forwards; }
+  @keyframes heroPhotoReveal { to { opacity:1; transform:translateY(0) scale(1); } }
   .hero-photo-panel::after { content:''; position:absolute; inset:0; box-shadow:inset 0 0 80px rgba(7,7,12,.5); pointer-events:none; }
   .hero-photo-panel img { width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block; }
   .hero-copy { min-width:0; }
   .personal-title { font-size:clamp(3.1rem,6.1vw,6.6rem); line-height:.88; letter-spacing:-.052em; }
+  .typewriter-line { width:max-content; max-width:100%; min-height:.9em; white-space:nowrap; }
+  .js .typewriter-line { visibility:hidden; }
+  .js .typewriter-line.is-typing,.js .typewriter-line.is-complete { visibility:visible; }
+  .typewriter-line.is-typing::after { content:'|'; display:inline-block; margin-left:.04em; color:#f472b6; font-weight:400; animation:typeCursor .7s steps(1,end) infinite; text-shadow:0 0 14px rgba(244,114,182,.8); }
+  @keyframes typeCursor { 50% { opacity:0; } }
+  .js .hero-reveal { opacity:0; transform:translateY(14px); }
+  .js .hero-copy.copy-complete .hero-reveal { animation:heroTextReveal .55s ease forwards; animation-delay:var(--reveal-delay,.05s); }
+  @keyframes heroTextReveal { to { opacity:1; transform:translateY(0); } }
   .availability-text { font-family:'Space Mono',monospace; font-size:.66rem; letter-spacing:.16em; color:var(--muted); }
   .hero-signature { font-family:'Space Mono',monospace; font-size:clamp(.56rem,.85vw,.72rem); letter-spacing:.12em; color:#e2e8f0; margin-top:1.35rem; line-height:1.7; }
   .hero-about { margin-top:1.7rem; max-width:650px; color:var(--muted); line-height:1.75; font-size:.9rem; border-left:2px solid var(--violet); padding-left:1.2rem; }
   @media(max-width:900px){.personal-hero{padding-top:6.5rem}.hero-stage{grid-template-columns:1fr;max-width:650px}.hero-photo-panel{height:520px;min-height:0}.personal-title{font-size:clamp(3rem,12vw,5.4rem)}}
   @media(max-width:520px){.hero-photo-panel{height:430px}.personal-title{font-size:clamp(2.65rem,13vw,4.2rem)}.hero-signature{font-size:.52rem}}
+  @media(prefers-reduced-motion:reduce){.hero-photo-enter{opacity:1;transform:none;animation:none}.typewriter-line.is-typing::after{animation:none}.js .hero-reveal{opacity:1;transform:none}.js .hero-copy.copy-complete .hero-reveal{animation:none}}
   .about-kicker { font-family:'Space Mono',monospace; font-size:.72rem; letter-spacing:.18em; color:var(--text); margin-bottom:.85rem; }
   .project-image { height:190px; width:100%; object-fit:cover; display:block; background:#08080c; }
   .project-image.contain { object-fit:contain; padding:1.4rem; }
@@ -490,13 +502,13 @@
     <span>const vision = await imagine();<br>const produit = build(vision);</span><span>projects.map(project =&gt; ship(project));<br>if (idea) code();</span><span>fetch('/api/ambition')<br>&nbsp;&nbsp;.then(response =&gt; response.json());</span><span>function createFuture() {<br>&nbsp;&nbsp;return design + code + impact;<br>}</span>
   </div>
   <div class="hero-stage relative z-10">
-    <div class="hero-photo-panel" data-aos="fade-right"><img src="/miche-fresneil-portrait.png" alt="Portrait de Miche Fresneil"></div>
-    <div class="hero-copy" data-aos="fade-left">
-      <div class="flex items-center gap-2 mb-6"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span></span><span class="availability-text">DISPONIBLE POUR MISSION</span></div>
-      <div class="personal-title font-extrabold uppercase"><div>VOTRE <span class="gradient-sub">VISION.</span></div><div>MON <span class="gradient-sub">CODE.</span></div></div>
-      <p class="hero-signature">MICHE FRESNEIL — FULL-STACK · 42 FLORENCE · UNIVERSITÉ DE PISE</p>
-      <div class="hero-about"><p class="about-kicker">À PROPOS</p><p>Miche Fresneil Zilat Mboni Obambi, développeur Full-Stack créatif basé à Pise, en Italie. Depuis 2023, je transforme des idées ambitieuses en produits web et mobiles utiles, élégants et robustes.</p></div>
-      <div class="flex gap-4 flex-wrap mt-7"><a href="#work" class="btn-primary">Découvrir mes projets ↓</a><a href="#contact" class="btn-outline">Travaillons ensemble</a></div>
+    <div class="hero-photo-panel hero-photo-enter"><img src="/miche-fresneil-portrait.png" alt="Portrait de Miche Fresneil"></div>
+    <div class="hero-copy">
+      <div class="hero-reveal flex items-center gap-2 mb-6" style="--reveal-delay:.05s"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span></span><span class="availability-text">DISPONIBLE POUR MISSION</span></div>
+      <div class="personal-title font-extrabold uppercase" aria-label="Votre vision. Mon code."><div class="typewriter-line" data-typewriter aria-hidden="true"><span data-typewriter-text>VOTRE </span><span class="gradient-sub" data-typewriter-text>VISION.</span></div><div class="typewriter-line" data-typewriter aria-hidden="true"><span data-typewriter-text>MON </span><span class="gradient-sub" data-typewriter-text>CODE.</span></div></div>
+      <p class="hero-signature hero-reveal" style="--reveal-delay:.16s">MICHE FRESNEIL — FULL-STACK · 42 FLORENCE · UNIVERSITÉ DE PISE</p>
+      <div class="hero-about hero-reveal" style="--reveal-delay:.27s"><p class="about-kicker">À PROPOS</p><p>Miche Fresneil Zilat Mboni Obambi, développeur Full-Stack créatif basé à Pise, en Italie. Depuis 2023, je transforme des idées ambitieuses en produits web et mobiles utiles, élégants et robustes.</p></div>
+      <div class="hero-reveal flex gap-4 flex-wrap mt-7" style="--reveal-delay:.38s"><a href="#work" class="btn-primary">Découvrir mes projets ↓</a><a href="#contact" class="btn-outline">Travaillons ensemble</a></div>
     </div>
   </div>
 </section>
@@ -651,6 +663,45 @@
 <script>
 // ── AOS init ──
 AOS.init({ duration: 650, once: true, easing: 'ease-out-cubic' });
+
+// ── Hero typewriter: portrait first, then the title is written live ──
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+async function runHeroTypewriter() {
+  const heroCopy = document.querySelector('.hero-copy');
+  const lines = [...document.querySelectorAll('[data-typewriter]')];
+  if (!heroCopy || !lines.length) return;
+
+  const segments = lines.map(line => [...line.querySelectorAll('[data-typewriter-text]')].map(part => ({
+    element: part,
+    text: part.textContent
+  })));
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    lines.forEach(line => line.classList.add('is-complete'));
+    heroCopy.classList.add('copy-complete');
+    return;
+  }
+
+  segments.flat().forEach(({ element }) => { element.textContent = ''; });
+  await wait(1050);
+
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
+    const line = lines[lineIndex];
+    line.classList.add('is-typing');
+    for (const { element, text } of segments[lineIndex]) {
+      for (const character of text) {
+        element.textContent += character;
+        await wait(character === ' ' ? 28 : 54);
+      }
+    }
+    line.classList.remove('is-typing');
+    line.classList.add('is-complete');
+    await wait(150);
+  }
+
+  heroCopy.classList.add('copy-complete');
+}
+runHeroTypewriter();
 
 // ── Custom cursor ──
 const cursor = document.getElementById('cursor');
