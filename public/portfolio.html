@@ -420,10 +420,11 @@
   .about-kicker { font-family:'Space Mono',monospace; font-size:.72rem; letter-spacing:.18em; color:var(--text); margin-bottom:.85rem; }
   .project-image { height:190px; width:100%; object-fit:cover; display:block; background:#08080c; }
   .project-image.contain { object-fit:contain; padding:1.4rem; }
-  .code-rain{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;font-family:'Space Mono',monospace;color:rgba(167,139,250,.11);font-size:clamp(.62rem,1vw,.78rem);line-height:2.1}
-  .code-rain span{position:absolute;white-space:pre;animation:codeFloat 12s ease-in-out infinite}
+  .code-rain{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:2;font-family:'Space Mono',monospace;color:rgba(196,181,253,.38);font-size:clamp(.66rem,1vw,.86rem);line-height:2.05;text-shadow:0 0 16px rgba(139,92,246,.58);mix-blend-mode:screen}
+  .code-rain span{position:absolute;white-space:pre;padding:.45rem .7rem;border-left:1px solid rgba(236,72,153,.38);border-radius:0 7px 7px 0;background:linear-gradient(90deg,rgba(15,10,30,.42),rgba(15,10,30,0));animation:codeFloat 12s ease-in-out infinite}
   .code-rain span:nth-child(1){left:3%;top:18%}.code-rain span:nth-child(2){right:2%;top:26%;animation-delay:-3s}.code-rain span:nth-child(3){left:7%;bottom:12%;animation-delay:-6s}.code-rain span:nth-child(4){right:5%;bottom:15%;animation-delay:-9s}
   @keyframes codeFloat{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(-22px);opacity:1}}
+  @media(max-width:700px){.code-rain{color:rgba(196,181,253,.26);font-size:.6rem;text-shadow:0 0 12px rgba(139,92,246,.42)}.code-rain span:nth-child(2),.code-rain span:nth-child(3){display:none}}
   .project-story{color:var(--muted);font-size:.8rem;line-height:1.72}.project-story strong{color:var(--violet-light)}
   .career-meta{color:var(--muted);font-size:.74rem;font-family:'Space Mono',monospace;margin-top:.25rem}
   .experience-code{background:#0a0a0e;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.25)}
