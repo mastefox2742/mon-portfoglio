@@ -35,7 +35,7 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { background: var(--bg); }
+  html { background: var(--bg); overflow-x: hidden; }
 
   body {
     background: var(--bg);
@@ -434,7 +434,21 @@
   .availability-text { font-family:'Space Mono',monospace; font-size:.66rem; letter-spacing:.16em; color:var(--muted); }
   .hero-signature { font-family:'Space Mono',monospace; font-size:clamp(.56rem,.85vw,.72rem); letter-spacing:.12em; color:#e2e8f0; margin-top:1.35rem; line-height:1.7; }
   .hero-about { margin-top:1.7rem; max-width:650px; color:var(--muted); line-height:1.75; font-size:.9rem; border-left:2px solid var(--violet); padding-left:1.2rem; }
-  @media(max-width:900px){.personal-hero{padding-top:6.5rem}.hero-stage{grid-template-columns:1fr;max-width:650px}.hero-photo-panel{height:520px;min-height:0}.personal-title{font-size:clamp(3rem,12vw,5.4rem)}}
+  @media(max-width:900px){
+    .personal-hero{padding-top:6.5rem}
+    .hero-stage{grid-template-columns:1fr;max-width:650px}
+    .hero-photo-panel{height:520px;min-height:0}
+    .personal-title{font-size:clamp(3rem,6.8vw,3.5rem)}
+    .availability-text{font-size:.72rem}
+    .hero-signature{font-size:.75rem;line-height:1.65;letter-spacing:.05em}
+    .hero-about{font-size:.98rem;line-height:1.72}
+    #desktop-nav,#nav-cta{display:none!important}
+    #hamburger{display:flex!important;width:44px;height:44px;align-items:center;justify-content:center;border-radius:8px}
+    #mobile-menu{padding:0 1.125rem 1rem}
+    #mobile-menu:not(.hidden){display:flex!important}
+    #mobile-menu .nav-link{min-height:44px;justify-content:flex-start;padding:.65rem .75rem;border-radius:8px;font-size:.82rem;background:rgba(255,255,255,.025)}
+  }
+  @media(hover:none),(pointer:coarse){body{cursor:auto}#cursor,#cursor-ring,.glow-blob{display:none}}
   @media(max-width:520px){.hero-photo-panel{height:430px}.personal-title{font-size:clamp(2.65rem,13vw,4.2rem)}.hero-signature{font-size:.52rem}}
   @media(prefers-reduced-motion:reduce){.hero-photo-enter{opacity:1;transform:none;animation:none}.typewriter-line.is-typing::after{animation:none}.js .hero-reveal{opacity:1;transform:none}.js .hero-copy.copy-complete .hero-reveal{animation:none}}
   .about-kicker { font-family:'Space Mono',monospace; font-size:.72rem; letter-spacing:.18em; color:var(--text); margin-bottom:.85rem; }
@@ -450,6 +464,54 @@
   .experience-code{background:#0a0a0e;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.25)}
   .code-window-bar{height:44px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px;padding:0 16px}.code-window-bar span{width:9px;height:9px;border-radius:50%;background:#ec4899}.code-window-bar span:nth-child(2){background:#f59e0b}.code-window-bar span:nth-child(3){background:#4ade80}.code-window-bar small{margin-left:auto;color:var(--muted);font-family:'Space Mono',monospace}
   .experience-code pre{padding:2rem;overflow:auto;color:#cbd5e1;font-family:'Space Mono',monospace;font-size:.78rem;line-height:2}.code-purple{color:#a78bfa}.code-pink{color:#f472b6}.code-green{color:#4ade80}
+  @media(max-width:700px){
+    body{cursor:auto;font-size:16px}
+    #cursor,#cursor-ring,.glow-blob{display:none}
+    #navbar>div{padding:.75rem 1.125rem}
+    #hamburger{width:44px;height:44px;align-items:center;justify-content:center;border-radius:8px}
+    #mobile-menu{padding:0 1.125rem 1rem}
+    #mobile-menu .nav-link{min-height:44px;justify-content:flex-start;padding:.65rem .75rem;border-radius:8px;font-size:.82rem;background:rgba(255,255,255,.025)}
+    .personal-hero{min-height:auto;padding:5.25rem 1.125rem 2.75rem!important;align-items:flex-start}
+    .hero-stage{gap:1.6rem}
+    .hero-photo-panel{height:clamp(340px,48vh,390px);min-height:0;border-radius:16px}
+    .personal-title{font-size:clamp(2rem,8.8vw,2.5rem);line-height:.94;letter-spacing:-.045em}
+    .typewriter-line{width:100%;max-width:100%;white-space:normal;min-height:.94em}
+    .availability-text{font-size:.72rem;letter-spacing:.12em}
+    .hero-signature{font-size:.75rem!important;line-height:1.65;letter-spacing:.045em;margin-top:1.1rem}
+    .hero-about{font-size:.98rem;line-height:1.72;margin-top:1.35rem;padding-left:1rem}
+    .hero-copy>.hero-reveal:last-child{gap:.75rem}
+    .hero-copy .btn-primary,.hero-copy .btn-outline{width:100%;min-height:48px;justify-content:center;padding:.8rem 1rem;text-align:center}
+    #expertise,#work,#experience,#contact{padding:4.5rem 1.125rem!important;scroll-margin-top:70px}
+    section h2{max-width:100%;font-size:clamp(1.85rem,8.5vw,2.25rem)!important;line-height:1.12!important;overflow-wrap:anywhere}
+    #contact h2{font-size:clamp(2rem,9vw,2.4rem)!important}
+    #work>div:first-child,#work>div:first-child>div{min-width:0;max-width:100%}
+    .expertise-card{padding:1.35rem}
+    .expertise-card p{font-size:.94rem!important;line-height:1.7!important}
+    .tag{font-size:.7rem;line-height:1.45;padding:.25rem .55rem}
+    .project-card .p-5{padding:1.15rem}
+    .project-image,.project-thumb{height:175px!important}
+    .project-story{font-size:.92rem;line-height:1.68}
+    .filter-btn{min-height:42px;font-size:.75rem;padding:.55rem .85rem;letter-spacing:.06em}
+    .exp-header{min-height:64px;padding:1rem;gap:.75rem}
+    .exp-header>div:first-child{min-width:0}
+    .exp-body{font-size:.95rem;line-height:1.72;padding-left:1rem;padding-right:1rem}
+    .exp-body.open{padding:1rem 1rem 1.25rem}
+    .experience-code{width:100%;max-width:100%;min-width:0}
+    .experience-code pre{max-width:100%;padding:1rem;font-size:.72rem;line-height:1.75;-webkit-overflow-scrolling:touch}
+    .code-window-bar{padding:0 .75rem}.code-window-bar small{font-size:.7rem}
+    #contact .grid a{min-height:116px;padding:1.25rem;overflow-wrap:anywhere}
+    #contact>.max-w-4xl>.btn-primary{width:100%;min-height:50px;justify-content:center;padding:.9rem 1rem;text-align:center}
+    footer{padding:3.5rem 1.125rem!important}
+    .footer-grid{gap:2.25rem}
+    footer a{display:inline-flex;align-items:center;min-height:38px}
+    [data-aos=fade-left],[data-aos=fade-right]{transform:translate3d(0,28px,0)}
+    [data-aos=fade-left].aos-animate,[data-aos=fade-right].aos-animate{transform:translateZ(0)}
+  }
+  @media(max-width:380px){
+    .personal-title{font-size:clamp(1.7rem,7.8vw,2rem)}
+    .hero-photo-panel{height:clamp(325px,46vh,370px)}
+    #expertise,#work,#experience,#contact{padding-left:1rem!important;padding-right:1rem!important}
+  }
 </style>
 </head>
 <body>
@@ -473,7 +535,7 @@
     </a>
 
     <!-- Links -->
-    <div class="hidden md:flex items-center gap-8">
+    <div id="desktop-nav" class="hidden md:flex items-center gap-8">
       <a href="#hero" class="nav-link active"><span class="num">01</span>maison</a>
       <a href="#expertise" class="nav-link"><span class="num">02</span>expertise</a>
       <a href="#work" class="nav-link"><span class="num">03</span>travaux</a>
@@ -482,12 +544,12 @@
     </div>
 
     <!-- CTA -->
-    <a href="#contact" class="btn-primary text-xs py-2 px-4 hidden md:inline-flex">
+    <a id="nav-cta" href="#contact" class="btn-primary text-xs py-2 px-4 hidden md:inline-flex">
       Discutons →
     </a>
 
     <!-- Mobile hamburger -->
-    <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" onclick="toggleMenu()">
+    <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" onclick="toggleMenu()" aria-label="Ouvrir le menu" aria-controls="mobile-menu" aria-expanded="false">
       <span class="w-5 h-0.5 bg-white block transition-all"></span>
       <span class="w-5 h-0.5 bg-white block transition-all"></span>
       <span class="w-3 h-0.5 bg-white block transition-all"></span>
@@ -627,7 +689,7 @@
     </div>
 
     <a href="https://wa.me/393514933273" target="_blank" rel="noopener noreferrer" class="btn-primary text-base py-4 px-8">
-      Me contacter sur WhatsApp →
+      Écrire sur WhatsApp →
     </a>
   </div>
 </section>
@@ -801,7 +863,10 @@ function toggleExp(header) {
 // ── Mobile menu ──
 function toggleMenu() {
   const menu = document.getElementById('mobile-menu');
-  menu.classList.toggle('hidden');
+  const button = document.getElementById('hamburger');
+  const isOpen = !menu.classList.toggle('hidden');
+  button.setAttribute('aria-expanded', String(isOpen));
+  button.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
 }
 </script>
 
