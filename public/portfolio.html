@@ -405,16 +405,19 @@
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
   }
-  .personal-hero { min-height:100vh; padding-top:7.5rem; padding-bottom:5rem; }
-  .personal-title { font-size:clamp(3.5rem,9vw,8.5rem); line-height:.82; letter-spacing:-.055em; }
-  .profile-grid { display:grid; grid-template-columns:minmax(260px,.82fr) minmax(320px,1.18fr); gap:2rem; align-items:center; width:100%; max-width:900px; margin:2.2rem auto 0; }
-  .portrait-card { position:relative; min-height:420px; border-radius:18px; padding:9px; background:linear-gradient(135deg,var(--violet-light),var(--pink)); box-shadow:0 0 50px rgba(139,92,246,.22); }
-  .portrait-card::before { content:''; position:absolute; inset:-12px; border:1px solid rgba(167,139,250,.32); border-radius:24px; z-index:-1; }
-  .portrait-card img { width:100%; height:100%; min-height:402px; max-height:520px; object-fit:cover; object-position:center 24%; border-radius:12px; display:block; }
-  .about-card { padding:1rem 0 1rem 1rem; }
+  .personal-hero { min-height:100vh; padding-top:6rem; padding-bottom:2rem; display:flex; align-items:center; }
+  .hero-stage { width:100%; max-width:1180px; margin:0 auto; display:grid; grid-template-columns:minmax(300px,.82fr) minmax(420px,1.18fr); gap:clamp(2rem,5vw,5rem); align-items:center; }
+  .hero-photo-panel { height:min(70vh,680px); min-height:500px; overflow:hidden; border-radius:22px; border:1px solid rgba(167,139,250,.38); box-shadow:0 0 70px rgba(139,92,246,.18); position:relative; }
+  .hero-photo-panel::after { content:''; position:absolute; inset:0; box-shadow:inset 0 0 80px rgba(7,7,12,.5); pointer-events:none; }
+  .hero-photo-panel img { width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block; }
+  .hero-copy { min-width:0; }
+  .personal-title { font-size:clamp(3.1rem,6.1vw,6.6rem); line-height:.88; letter-spacing:-.052em; }
+  .availability-text { font-family:'Space Mono',monospace; font-size:.66rem; letter-spacing:.16em; color:var(--muted); }
+  .hero-signature { font-family:'Space Mono',monospace; font-size:clamp(.56rem,.85vw,.72rem); letter-spacing:.12em; color:#e2e8f0; margin-top:1.35rem; line-height:1.7; }
+  .hero-about { margin-top:1.7rem; max-width:650px; color:var(--muted); line-height:1.75; font-size:.9rem; border-left:2px solid var(--violet); padding-left:1.2rem; }
+  @media(max-width:900px){.personal-hero{padding-top:6.5rem}.hero-stage{grid-template-columns:1fr;max-width:650px}.hero-photo-panel{height:520px;min-height:0}.personal-title{font-size:clamp(3rem,12vw,5.4rem)}}
+  @media(max-width:520px){.hero-photo-panel{height:430px}.personal-title{font-size:clamp(2.65rem,13vw,4.2rem)}.hero-signature{font-size:.52rem}}
   .about-kicker { font-family:'Space Mono',monospace; font-size:.72rem; letter-spacing:.18em; color:var(--text); margin-bottom:.85rem; }
-  .about-lead { font-size:clamp(1.4rem,2.8vw,2.25rem); line-height:1.15; font-weight:600; margin-bottom:1rem; }
-  .about-body { color:var(--muted); line-height:1.8; font-size:.92rem; max-width:580px; }
   .project-image { height:190px; width:100%; object-fit:cover; display:block; background:#08080c; }
   .project-image.contain { object-fit:contain; padding:1.4rem; }
   .code-rain{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;font-family:'Space Mono',monospace;color:rgba(167,139,250,.11);font-size:clamp(.62rem,1vw,.78rem);line-height:2.1}
@@ -426,7 +429,6 @@
   .experience-code{background:#0a0a0e;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.25)}
   .code-window-bar{height:44px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px;padding:0 16px}.code-window-bar span{width:9px;height:9px;border-radius:50%;background:#ec4899}.code-window-bar span:nth-child(2){background:#f59e0b}.code-window-bar span:nth-child(3){background:#4ade80}.code-window-bar small{margin-left:auto;color:var(--muted);font-family:'Space Mono',monospace}
   .experience-code pre{padding:2rem;overflow:auto;color:#cbd5e1;font-family:'Space Mono',monospace;font-size:.78rem;line-height:2}.code-purple{color:#a78bfa}.code-pink{color:#f472b6}.code-green{color:#4ade80}
-  @media(max-width:768px){.personal-hero{padding-top:6.5rem}.personal-title{font-size:clamp(3rem,16vw,5.5rem)}.profile-grid{grid-template-columns:1fr;max-width:520px}.portrait-card{min-height:360px}.about-card{padding:1rem 0 0}}
 </style>
 </head>
 <body>
@@ -481,19 +483,20 @@
 </nav>
 
 <!-- ══════════ HERO ══════════ -->
-<section id="hero" class="personal-hero flex flex-col justify-center items-center relative px-6 overflow-hidden">
+<section id="hero" class="personal-hero relative px-6 overflow-hidden">
   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.045) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;"></div>
   <div class="code-rain" aria-hidden="true">
-    <span>const vision = await imagine();<br>const produit = build(vision);</span>
-    <span>projects.map(project =&gt; ship(project));<br>if (idea) code();</span>
-    <span>fetch('/api/ambition')<br>&nbsp;&nbsp;.then(response =&gt; response.json());</span>
-    <span>function createFuture() {<br>&nbsp;&nbsp;return design + code + impact;<br>}</span>
+    <span>const vision = await imagine();<br>const produit = build(vision);</span><span>projects.map(project =&gt; ship(project));<br>if (idea) code();</span><span>fetch('/api/ambition')<br>&nbsp;&nbsp;.then(response =&gt; response.json());</span><span>function createFuture() {<br>&nbsp;&nbsp;return design + code + impact;<br>}</span>
   </div>
-  <div class="flex items-center gap-2 mb-8 relative z-10" data-aos="fade-down"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span></span><span style="font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.16em;color:var(--muted);">DISPONIBLE POUR MISSION</span></div>
-  <div class="personal-title font-extrabold uppercase text-center relative z-10" data-aos="fade-up"><div>VOTRE <span class="gradient-sub">VISION.</span></div><div>MON <span class="gradient-sub">CODE.</span></div></div>
-  <div class="profile-grid relative z-10">
-    <div class="portrait-card" data-aos="fade-right"><img src="/miche-fresneil-portrait.png" alt="Portrait de Miche Fresneil"></div>
-    <div class="about-card" data-aos="fade-left"><p class="about-kicker">À PROPOS</p><h1 class="about-lead"><span class="gradient-sub">Miche Fresneil, Développeur Full-Stack Créatif basé à Brazzaville, Congo.</span></h1><p class="about-body">Miche Fresneil Zilat Mboni Obambi est un concepteur et développeur passionné par les expériences numériques utiles, élégantes et accessibles. Je transforme des idées ambitieuses en produits web et mobiles complets, de l'identité visuelle au déploiement.</p><div class="flex gap-4 flex-wrap mt-7"><a href="#work" class="btn-primary">Découvrir mes projets ↓</a><a href="#contact" class="btn-outline">Travaillons ensemble</a></div></div>
+  <div class="hero-stage relative z-10">
+    <div class="hero-photo-panel" data-aos="fade-right"><img src="/miche-fresneil-portrait.png" alt="Portrait de Miche Fresneil"></div>
+    <div class="hero-copy" data-aos="fade-left">
+      <div class="flex items-center gap-2 mb-6"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span></span><span class="availability-text">DISPONIBLE POUR MISSION</span></div>
+      <div class="personal-title font-extrabold uppercase"><div>VOTRE <span class="gradient-sub">VISION.</span></div><div>MON <span class="gradient-sub">CODE.</span></div></div>
+      <p class="hero-signature">MICHE FRESNEIL — FULL-STACK · 42 FLORENCE · UNIVERSITÉ DE PISE</p>
+      <div class="hero-about"><p class="about-kicker">À PROPOS</p><p>Miche Fresneil Zilat Mboni Obambi, développeur Full-Stack créatif basé entre Pise et Brazzaville. Depuis 2023, je transforme des idées ambitieuses en produits web et mobiles utiles, élégants et robustes.</p></div>
+      <div class="flex gap-4 flex-wrap mt-7"><a href="#work" class="btn-primary">Découvrir mes projets ↓</a><a href="#contact" class="btn-outline">Travaillons ensemble</a></div>
+    </div>
   </div>
 </section>
 
