@@ -68,6 +68,7 @@
     expertise: { x: 3.0,  y: 1.2,  s: .5,   distort: .25, freq: 1.6, a: '#0a2bff', b: '#c8ff2e', c: '#ffffff' },
     motion:    { x: 2.9,  y: -.9,  s: 1.0,  distort: .42, freq: 2.0, a: '#0a2bff', b: '#c8ff2e', c: '#ffffff' },
     work:      { x: -3.0, y: 1.3,  s: .6,   distort: .35, freq: 1.5, a: '#ff2e88', b: '#ff9a2e', c: '#ffe9a8' },
+    apps:      { x: -2.9, y: .9,   s: .8,   distort: .30, freq: 1.6, a: '#0a8f4f', b: '#c8ff2e', c: '#ffffff' },
     parcours:  { x: 2.8,  y: -.6,  s: .95,  distort: .30, freq: 1.4, a: '#2a1cff', b: '#19e3ff', c: '#c8ff2e' },
     contact:   { x: 1.7,  y: -.1,  s: 1.6,  distort: .50, freq: 1.7, a: '#2a1cff', b: '#ff2e88', c: '#7df9ff' }
   };
@@ -234,10 +235,11 @@
   }, { rootMargin: '-45% 0px -50% 0px' });
   $$('main section[id]').forEach(s => spy.observe(s));
 
-  /* Motion Lab : les boucles ne tournent que lorsqu'elles sont visibles */
-  const lab = $('#lab');
-  new IntersectionObserver(([entry]) => lab.classList.toggle('is-playing', entry.isIntersecting), { rootMargin: '100px' }).observe(lab);
-  if (reduce) $$('.stage-path svg').forEach(svg => svg.pauseAnimations && svg.pauseAnimations());
+  /* Vidéo mise en avant : lecture (muette) quand elle est à l'écran, pause sinon */
+  const reel = $('#reel');
+  if (reel && !reduce) new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) reel.play().catch(() => {}); else reel.pause();
+  }, { threshold: .5 }).observe(reel);
 
   /* Sans GSAP ou en mouvement réduit : tout est déjà visible, la scène reste statique */
   if (!animate) { root.classList.add('pre-done'); return; }
@@ -389,6 +391,11 @@
   $$('[data-count]').forEach(el => {
     const end = Number(el.dataset.count), state = { v: Number(el.dataset.from || 0) };
     gsap.to(state, { v: end, duration: 1.6, ease: 'power2.out', onUpdate: () => { el.textContent = Math.round(state.v); }, scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+  });
+
+  /* ── Applications : dans chaque carte, les deux téléphones montent l'un après l'autre ── */
+  $$('.app-card').forEach(card => {
+    gsap.from($$('.phone', card), { y: 90, autoAlpha: 0, duration: 1, stagger: .12, ease: 'power4.out', scrollTrigger: { trigger: card, start: 'top 85%', once: true } });
   });
 
   /* ── Parcours : la ligne se trace, les étapes arrivent ── */

@@ -208,52 +208,13 @@ h2 .cw { overflow: hidden; vertical-align: top; padding: .2em .02em .1em; margin
 .panel .tags span { border-color: currentColor; color: inherit; opacity: .85; }
 
 /* ─── Motion Lab ─── */
-.lab { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.tile { border: 1px solid var(--line); border-radius: 20px; background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); overflow: hidden; }
-.stage { position: relative; height: clamp(220px, 26vw, 300px); display: grid; place-items: center; overflow: hidden; }
-.tile figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem 1rem; padding: 1rem 1.3rem; border-top: 1px solid var(--line); }
-.tile figcaption b { font: 500 .78rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--lime); }
-.tile figcaption span { color: var(--muted); font-size: .92rem; }
-.js .lab:not(.is-playing) .stage * { animation-play-state: paused !important; }
-
-.stage-ease { align-content: center; gap: 1.1rem; padding: 0 clamp(1.2rem, 4vw, 2.5rem); place-items: stretch; }
-.ease-row { display: grid; grid-template-columns: 4.2rem 1fr; align-items: center; gap: 1rem; font: 400 .68rem/1 var(--mono); color: var(--muted); }
-.ease-track { position: relative; height: 18px; container-type: inline-size; background: linear-gradient(var(--line), var(--line)) center / 100% 1px no-repeat; }
-.ease-track i { position: absolute; top: 2px; left: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--lime); animation: travel 1.9s infinite alternate; }
-.ease-track .e1 { animation-timing-function: linear; background: var(--muted); }
-.ease-track .e2 { animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
-.ease-track .e3 { animation-timing-function: cubic-bezier(.34, 1.56, .64, 1); background: var(--pink); }
-.ease-track .e4 { animation-timing-function: cubic-bezier(.87, 0, .13, 1); background: var(--text); }
-@keyframes travel { from { translate: 0 0; } to { translate: calc(100cqw - 14px) 0; } }
-
-.morph { position: absolute; width: clamp(96px, 12vw, 132px); aspect-ratio: 1; background: var(--lime); animation: morph 6s var(--ease-io) infinite; }
-.morph.ghost { background: var(--pink); opacity: .6; animation-delay: -.22s; }
-.morph.g2 { background: var(--blue); opacity: .6; animation-delay: -.44s; }
-@keyframes morph {
-  0%, 100% { clip-path: polygon(0 0, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 50%); rotate: 0deg; scale: 1; }
-  25% { clip-path: polygon(15% 15%, 50% 0, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0 50%); rotate: 90deg; scale: 1.15; }
-  50% { clip-path: polygon(38% 38%, 50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%); rotate: 180deg; scale: 1.25; }
-  75% { clip-path: polygon(25% 25%, 50% 0, 75% 25%, 100% 50%, 75% 75%, 50% 100%, 25% 75%, 0 50%); rotate: 270deg; scale: .9; }
-}
-
-.stage-cube { perspective: 700px; }
-.cube { --s: clamp(84px, 10vw, 116px); position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: tumble 9s linear infinite; }
-.cube i { position: absolute; inset: 0; border: 2px solid var(--lime); background: rgba(200, 255, 46, .07); }
-.cube i:nth-child(1) { transform: translateZ(calc(var(--s) / 2)); }
-.cube i:nth-child(2) { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); border-color: var(--pink); background: rgba(255, 46, 136, .1); }
-.cube i:nth-child(3) { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); }
-.cube i:nth-child(4) { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); border-color: var(--blue); background: rgba(74, 92, 255, .14); }
-.cube i:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); }
-.cube i:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); border-color: var(--text); }
-@keyframes tumble { to { transform: rotateX(360deg) rotateY(720deg); } }
-
-.stage-path svg { width: min(86%, 420px); overflow: visible; }
-.curve { fill: none; stroke: var(--text); stroke-width: 2; stroke-linecap: round; }
-.handle { stroke: var(--pink); stroke-width: 1; stroke-dasharray: 3 4; }
-.handle-dot { fill: var(--bg); stroke: var(--pink); stroke-width: 1.5; }
-.anchor { fill: var(--bg); stroke: var(--text); stroke-width: 1.5; }
-.traveler rect { fill: var(--lime); }
-
+.videos { display: grid; grid-template-columns: 3.16fr 1fr; gap: 1rem; align-items: start; margin-bottom: clamp(3rem, 7vw, 5.5rem); }
+.reel { border: 1px solid var(--line); border-radius: 22px; background: var(--solid); overflow: hidden; box-shadow: 0 40px 100px -40px rgba(74, 92, 255, .55); }
+.reel video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
+.reel-v video { aspect-ratio: 9 / 16; }
+.reel figcaption { display: grid; gap: .15rem; padding: .8rem 1rem; border-top: 1px solid var(--line); }
+.reel figcaption b { font: 500 .76rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--lime); }
+.reel figcaption span { color: var(--muted); font-size: .88rem; }
 /* ─── Projets : piste horizontale ─── */
 .work { position: relative; padding: clamp(4rem, 8vw, 6rem) 0; }
 .h-track { display: flex; align-items: stretch; gap: clamp(1rem, 3vw, 3rem); padding: 0 var(--pad); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
@@ -295,6 +256,21 @@ h2 .cw { overflow: hidden; vertical-align: top; padding: .2em .02em .1em; margin
 .h-pin .h-count b { font: 800 1.3rem/1 var(--display); color: var(--text); font-variant-numeric: tabular-nums; min-width: 2.2em; }
 .h-pin .h-count i { flex: 1; height: 1px; background: var(--line); margin-left: 1rem; }
 .h-pin .h-count em { display: block; height: 3px; margin-top: -1px; background: var(--lime); transform: scaleX(0); transform-origin: left; }
+
+/* ─── Applications mobiles : une carte par projet, deux écrans ─── */
+.apps-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.app-card { display: flex; flex-direction: column; gap: .7rem; padding: clamp(1.1rem, 2vw, 1.6rem); border: 1px solid var(--line); border-radius: 24px; background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: border-color .4s; }
+.app-card:hover { border-color: rgba(200, 255, 46, .45); }
+.app-phones { position: relative; display: flex; justify-content: center; padding: .8rem 0 1.4rem; }
+.phone { width: 47%; max-width: 190px; border-radius: 26px; padding: 5px; background: #05060a; border: 1px solid rgba(255, 255, 255, .22); box-shadow: 0 30px 60px -24px rgba(0, 0, 0, .9); transition: translate .6s var(--ease), rotate .6s var(--ease); }
+.phone:first-child { rotate: -5deg; translate: 8% 0; z-index: 1; }
+.phone:last-child { rotate: 5deg; translate: -8% 9%; }
+.app-card:hover .phone:first-child { rotate: -8deg; translate: 0 -3%; }
+.app-card:hover .phone:last-child { rotate: 8deg; translate: 0 6%; }
+.phone img { width: 100%; height: auto; aspect-ratio: 520 / 1126; object-fit: cover; object-position: top; border-radius: 21px; background: var(--solid); }
+.app-card h3 { font: 800 clamp(1.05rem, 1.6vw, 1.35rem)/1.12 var(--display); letter-spacing: -.03em; text-transform: uppercase; }
+.app-card p { color: var(--muted); font-size: .95rem; }
+.app-card .tags { margin-top: auto; padding-top: .4rem; }
 
 /* ─── Parcours ─── */
 .journey { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
@@ -349,12 +325,16 @@ h2 .cw { overflow: hidden; vertical-align: top; padding: .2em .02em .1em; margin
   .chip-a { left: -4%; } .chip-b { right: -4%; }
   .skill { grid-template-columns: 2.6rem minmax(0, 1fr); }
   .skill p, .skill .tags { grid-column: 2; }
+  .apps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .videos { grid-template-columns: 1fr; }
+  .videos .reel-v { max-width: 320px; }
   .journey { grid-template-columns: 1fr; }
   .code { position: static; }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 700px) {
-  .duo, .lab, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+  .duo, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+  .apps-grid { grid-template-columns: 1fr; }
   .hero-cta, .hero-cta .btn, .contact .btn-lg { width: 100%; }
   .code pre { font-size: .72rem; padding: 1.1rem; }
   .contact-card { min-height: 104px; }

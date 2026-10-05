@@ -57,6 +57,7 @@
     <a href="#expertise">Expertise</a>
     <a href="#motion">Motion</a>
     <a href="#work">Projets</a>
+    <a href="#apps">Apps</a>
     <a href="#parcours">Parcours</a>
   </nav>
   <a href="#contact" class="btn btn-sm nav-cta" data-magnetic>Discutons <span aria-hidden="true">→</span></a>
@@ -69,8 +70,9 @@
     <a href="#expertise"><small>02</small>Expertise</a>
     <a href="#motion"><small>03</small>Motion</a>
     <a href="#work"><small>04</small>Projets</a>
-    <a href="#parcours"><small>05</small>Parcours</a>
-    <a href="#contact"><small>06</small>Contact</a>
+    <a href="#apps"><small>05</small>Apps</a>
+    <a href="#parcours"><small>06</small>Parcours</a>
+    <a href="#contact"><small>07</small>Contact</a>
   </nav>
 </div>
 
@@ -186,50 +188,19 @@
 <section id="motion" class="section" data-scene="motion">
   <div class="wrap">
     <header class="sec-head">
-      <p class="label">03 — Motion Lab</p>
+      <p class="label">03 — Motion design</p>
       <h2 data-chars>Le mouvement, écrit en code</h2>
-      <p class="sec-lead" data-reveal>La scène 3D derrière cette page et ces quatre études tournent en direct — aucune vidéo, uniquement du WebGL, du SVG, du CSS et du JavaScript.</p>
+      <p class="sec-lead" data-reveal>Vidéos promotionnelles, identités animées, interfaces en mouvement : je conçois le motion design comme le code, au détail près.</p>
     </header>
 
-    <div class="lab" id="lab">
-      <figure class="tile" data-reveal>
-        <div class="stage stage-ease">
-          <div class="ease-row"><span>linear</span><div class="ease-track"><i class="e1"></i></div></div>
-          <div class="ease-row"><span>in-out</span><div class="ease-track"><i class="e2"></i></div></div>
-          <div class="ease-row"><span>back</span><div class="ease-track"><i class="e3"></i></div></div>
-          <div class="ease-row"><span>expo</span><div class="ease-track"><i class="e4"></i></div></div>
-        </div>
-        <figcaption><b>Easing</b><span>Même distance, même durée — quatre caractères.</span></figcaption>
+    <div class="videos">
+      <figure class="reel" data-reveal>
+        <video id="reel" src="video/hondyco.mp4" poster="video/hondyco.jpg" width="1920" height="1080" controls muted loop playsinline preload="none" aria-label="Hondy&amp;Co : vidéo de marque"></video>
+        <figcaption><b>Hondy&amp;Co</b><span>Vidéo de marque · 42 s</span></figcaption>
       </figure>
-
-      <figure class="tile" data-reveal>
-        <div class="stage stage-morph">
-          <i class="morph ghost g2"></i><i class="morph ghost g1"></i><i class="morph"></i>
-        </div>
-        <figcaption><b>Morphing</b><span>Une forme, huit points, quatre états.</span></figcaption>
-      </figure>
-
-      <figure class="tile" data-reveal>
-        <div class="stage stage-cube" aria-hidden="true">
-          <div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        </div>
-        <figcaption><b>3D en CSS</b><span>Six faces, une perspective, zéro image.</span></figcaption>
-      </figure>
-
-      <figure class="tile" data-reveal>
-        <div class="stage stage-path">
-          <svg viewBox="0 0 300 160" aria-hidden="true">
-            <line class="handle" x1="20" y1="130" x2="90" y2="20"/><line class="handle" x1="280" y1="30" x2="200" y2="150"/>
-            <circle class="handle-dot" cx="90" cy="20" r="3.5"/><circle class="handle-dot" cx="200" cy="150" r="3.5"/>
-            <path id="motion-path" class="curve" d="M20,130 C90,20 200,150 280,30"/>
-            <rect class="anchor" x="15" y="125" width="10" height="10"/><rect class="anchor" x="275" y="25" width="10" height="10"/>
-            <g class="traveler">
-              <rect x="-7" y="-7" width="14" height="14" transform="rotate(45)"/>
-              <animateMotion dur="3.2s" repeatCount="indefinite" rotate="auto" calcMode="spline" keyTimes="0;0.5;1" keyPoints="0;1;0" keySplines=".65 0 .35 1;.65 0 .35 1"><mpath href="#motion-path"/></animateMotion>
-            </g>
-          </svg>
-        </div>
-        <figcaption><b>Trajectoire</b><span>Une courbe de Bézier, ses poignées, son image clé.</span></figcaption>
+      <figure class="reel reel-v" data-reveal>
+        <video src="video/alpha-tech.mp4" poster="video/alpha-tech.jpg" width="720" height="1280" controls playsinline preload="none" aria-label="Alpha Tech : web, SEO et publicité"></video>
+        <figcaption><b>Alpha Tech</b><span>Web, SEO &amp; Ads · 61 s</span></figcaption>
       </figure>
     </div>
   </div>
@@ -289,11 +260,64 @@
   <div class="h-count" aria-hidden="true"><b id="h-index">01</b><span>/ 03</span><i><em id="h-bar"></em></i></div>
 </section>
 
+<!-- ══════════ APPLICATIONS MOBILES ══════════ -->
+<section id="apps" class="section apps" data-scene="apps">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="label">05 — Applications</p>
+      <h2 data-chars>Applications mobiles</h2>
+      <p class="sec-lead" data-reveal>Des interfaces conçues écran par écran, pour l’éducation, la finance, la vie paroissiale et l’orientation.</p>
+    </header>
+    <div class="apps-grid">
+      <article class="app-card" data-reveal>
+        <div class="app-phones">
+          <figure class="phone"><img src="apps/kelassi-tableau-de-bord.webp" alt="Tableau de bord de l’élève" width="520" height="1126" loading="lazy"/></figure>
+          <figure class="phone"><img src="apps/kelassi-kelassi-ia.webp" alt="Conversation avec le tuteur Kelassi IA" width="520" height="1126" loading="lazy"/></figure>
+        </div>
+        <span class="proj-num">01</span>
+        <h3>Alpha Kelassi</h3>
+        <p>Assistant scolaire pour le BEPC et le BAC : planning de révision, quiz, flashcards et tuteur IA « Kelassi ».</p>
+        <div class="tags"><span>Éducation</span><span>Tuteur IA</span><span>Hors ligne</span></div>
+      </article>
+      <article class="app-card" data-reveal>
+        <div class="app-phones">
+          <figure class="phone"><img src="apps/alphapay-portefeuille.webp" alt="Portefeuille : solde et activité récente" width="520" height="1126" loading="lazy"/></figure>
+          <figure class="phone"><img src="apps/alphapay-carte-virtuelle.webp" alt="Carte virtuelle et réglages de sécurité" width="520" height="1126" loading="lazy"/></figure>
+        </div>
+        <span class="proj-num">02</span>
+        <h3>AlphaPay</h3>
+        <p>Portefeuille mobile et paiements : envoi d’argent, Mobile Money, carte virtuelle, avec un tableau de bord marchand et un portail développeur.</p>
+        <div class="tags"><span>Fintech</span><span>Mobile Money</span><span>Carte virtuelle</span></div>
+      </article>
+      <article class="app-card" data-reveal>
+        <div class="app-phones">
+          <figure class="phone"><img src="apps/archidiocese-accueil-archidiocese.webp" alt="Accueil : médiation et évangélisation" width="520" height="1126" loading="lazy"/></figure>
+          <figure class="phone"><img src="apps/archidiocese-archidiocese-tv-mediation.webp" alt="Archidiocèse TV : direct et parcours vidéo" width="520" height="1126" loading="lazy"/></figure>
+        </div>
+        <span class="proj-num">03</span>
+        <h3>Archidiocèse — application</h3>
+        <p>La vie de l’archidiocèse dans la poche : liturgie du jour, espace prière, TV en direct et parcours de foi.</p>
+        <div class="tags"><span>Liturgie</span><span>Vidéo en direct</span><span>Parcours guidés</span></div>
+      </article>
+      <article class="app-card" data-reveal>
+        <div class="app-phones">
+          <figure class="phone"><img src="apps/parah-landing-page.webp" alt="Accueil : « Ne laisse pas ton avenir au hasard »" width="520" height="1126" loading="lazy"/></figure>
+          <figure class="phone"><img src="apps/parah-resultats.webp" alt="Rapport d’orientation" width="520" height="1126" loading="lazy"/></figure>
+        </div>
+        <span class="proj-num">04</span>
+        <h3>PARAH</h3>
+        <p>Orientation scolaire : test d’orientation, rapport de profil et comparateur de filières.</p>
+        <div class="tags"><span>Orientation</span><span>Test & rapport</span><span>Comparateur</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════ PARCOURS ══════════ -->
 <section id="parcours" class="section" data-scene="parcours">
   <div class="wrap">
     <header class="sec-head">
-      <p class="label">05 — Parcours</p>
+      <p class="label">06 — Parcours</p>
       <h2 data-chars>Mon parcours</h2>
     </header>
 
@@ -345,7 +369,7 @@
 <!-- ══════════ CONTACT ══════════ -->
 <section id="contact" class="section contact" data-scene="contact">
   <div class="wrap">
-    <p class="label">06 — Contact</p>
+    <p class="label">07 — Contact</p>
     <h2 class="contact-title" id="contact-title" data-chars-manual>Travaillons ensemble</h2>
     <p class="sec-lead" data-reveal>Un projet en tête ? Une idée à concrétiser ? Je suis disponible pour discuter de vos besoins et vous proposer une solution sur mesure.</p>
 
@@ -376,7 +400,7 @@
     </div>
     <div>
       <h4>Navigation</h4>
-      <a href="#profil">Profil</a><a href="#expertise">Expertise</a><a href="#motion">Motion Lab</a><a href="#work">Projets</a><a href="#contact">Contact</a>
+      <a href="#profil">Profil</a><a href="#expertise">Expertise</a><a href="#motion">Motion design</a><a href="#work">Projets</a><a href="#apps">Applications</a><a href="#contact">Contact</a>
     </div>
     <div>
       <h4>Projets récents</h4>
